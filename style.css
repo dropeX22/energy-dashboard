@@ -1,0 +1,17 @@
+body {
+  font-family: Arial;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+canvas {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+#alert {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
