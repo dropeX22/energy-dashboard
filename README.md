@@ -18,13 +18,22 @@ Dashboard web para monitoreo de consumo energético en tiempo real.
 - JavaScript
 - Chart.js
 
-## Cómo usar
+## Cómo ejecutar el proyecto
 
 1. Clona el repositorio:
 
 git clone https://github.com/dropeX22/energy-dashboard.git
 
-2. Abre `index.html` en tu navegador
+2. Backend (recomiendo ejecutarlo desde el símbolo del sistema)
+	
+	Servidor: py server.py 
+	Sensor: py sensor.py
+	
+	verificar que recibe datos del sensor en http://127.0.0.1:5000/energy
+
+3. Frontend
+
+	Abre `index.html` en tu navegador
 
 Nota
 
