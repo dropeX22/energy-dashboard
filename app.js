@@ -1,3 +1,7 @@
+async function getDataFromAPI() {
+  const response = await fetch("http://127.0.0.1:5000/energy");
+  return await response.json();
+}
 async function fakeAPI() {
   return new Promise(resolve => {
     setTimeout(() => {
@@ -52,12 +56,15 @@ document.getElementById("toggleBtn").addEventListener("click", () => {
   document.getElementById("toggleBtn").textContent = running ? "Pausar" : "Reanudar";
 });
 
-setInterval(async() => {
+setInterval(async () => {
 
   if (!running) return;
 
-  const response = await fakeAPI()
-  const newValue = response.value
+  const apiData = await getDataFromAPI();
+
+  if (apiData.length === 0) return;
+
+  const newValue = apiData[apiData.length - 1].value;
 
   data.push(newValue);
   labels.push(new Date().toLocaleTimeString().slice(0,5));
@@ -69,7 +76,7 @@ setInterval(async() => {
 
   const alertBox = document.getElementById("alert");
 
-  if (newValue > 40) {
+  if (newValue > 30) {
     alertBox.textContent = "⚠️ Consumo alto detectado!";
   } else {
     alertBox.textContent = "";
